@@ -1,2 +1,34 @@
-<script id="chatBroEmbedCode">/* Chatbro Widget Embed Code Start */function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','//www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}/* Chatbro Widget Embed Code End */ChatbroLoader({encodedChatId: '64Hoq'});</script>
+<style>
+#error-msg {
+  font-size: 18px;
+}
+
+#error-msg > div {
+  margin-bottom: 20px;
+}
+</style>
+
 <div id="chatbro"></div>
+<div style="display:none" id="error-msg">
+  <div>
+    Sorry, your browser has 3rd party site-data blocked so we can't show the chat here (<a href="https://www.chromium.org/for-testers/bug-reporting-guidelines/uncaught-securityerror-failed-to-read-the-localstorage-property-from-window-access-is-denied-for-this-document">learn more</a>).
+  </div>
+
+  <div>
+    Please <a target="_blank" href="https://degensprotocol.github.io/degens-chat-embed/chat.html">click here</a> to open chat in a new window.
+  </div>
+</div>
+
+<script id="chatBroEmbedCode">
+
+/* Chatbro Widget Embed Code Start */
+function ChatbroLoader(chats,async){async=!1!==async;var params={embedChatsParameters:chats instanceof Array?chats:[chats],lang:navigator.language||navigator.userLanguage,needLoadCode:'undefined'==typeof Chatbro,embedParamsVersion:localStorage.embedParamsVersion,chatbroScriptVersion:localStorage.chatbroScriptVersion},xhr=new XMLHttpRequest;xhr.withCredentials=!0,xhr.onload=function(){eval(xhr.responseText)},xhr.onerror=function(){console.error('Chatbro loading error')},xhr.open('GET','//www.chatbro.com/embed.js?'+btoa(unescape(encodeURIComponent(JSON.stringify(params)))),async),xhr.send()}
+/* Chatbro Widget Embed Code End */
+
+try {
+    ChatbroLoader({encodedChatId: '64Hoq'});
+} catch(e) {
+    document.getElementById('error-msg').style.display = 'unset';
+}
+
+</script>
